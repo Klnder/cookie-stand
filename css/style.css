@@ -1,0 +1,31 @@
+body {
+  background-color: #1d3049;
+  color: white;
+}
+h1,
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: purple;
+}
+p {
+  font-family: Times;
+  color: green;
+}
+.header-container {
+  width: 90%;
+  margin: 50px auto;
+}
+.main-container {
+  background-color: #208aae;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+h2 {
+  margin: 1rem;
+}
+li {
+  margin: 1rem;
+  font-family: arial;
+}
