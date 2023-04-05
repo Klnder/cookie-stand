@@ -12,45 +12,41 @@ const shopInformation = [
 const shopList = [];
 const parentElement = document.getElementById("list-shop");
 
-function shopCreator(location, minCustomer, maxCustomer, avgCookie) {
-  let shop = {
-    location: location,
-    minCustomer: minCustomer,
-    maxCustomer: maxCustomer,
-    avgCookie: avgCookie,
-    saleByHour: [],
-    totalSales: 0,
-    calculateSales() {
-      for (let i = 0; i < hours.length; i++) {
-        let cookieSale = Math.round(randomCustomerNumber(this.minCustomer, this.maxCustomer) * this.avgCookie);
-        this.totalSales += cookieSale;
-        this.saleByHour.push(cookieSale);
-      }
-    },
-    render() {
-      this.calculateSales();
-      let locationName = document.createElement("h2");
-      locationName.textContent = this.location;
-      parentElement.appendChild(locationName);
-
-      let list = document.createElement("ul");
-      for (let i = 0; i < hours.length; i++) {
-        const li = document.createElement("li");
-        li.textContent = `${hours[i]}: ${this.saleByHour[i]} cookies`;
-        list.appendChild(li);
-      }
-      const li = document.createElement("li");
-      li.textContent = `Total: ${this.totalSales} cookies`;
-      list.appendChild(li);
-      parentElement.appendChild(list);
-    },
+function Shop(location, minCustomer, maxCustomer, avgCookie) {
+  this.location = location;
+  this.minCustomer = minCustomer;
+  this.maxCustomer = maxCustomer;
+  this.avgCookie = avgCookie;
+  this.saleByHour = [];
+  this.totalSales = 0;
+  this.calculateSales = function () {
+    for (let i = 0; i < hours.length; i++) {
+      let cookieSale = Math.round(randomCustomerNumber(this.minCustomer, this.maxCustomer) * this.avgCookie);
+      this.totalSales += cookieSale;
+      this.saleByHour.push(cookieSale);
+    }
   };
+  this.render = function () {
+    this.calculateSales();
+    let locationName = document.createElement("h2");
+    locationName.textContent = this.location;
+    parentElement.appendChild(locationName);
 
-  return shop;
+    let list = document.createElement("ul");
+    for (let i = 0; i < hours.length; i++) {
+      const li = document.createElement("li");
+      li.textContent = `${hours[i]}: ${this.saleByHour[i]} cookies`;
+      list.appendChild(li);
+    }
+    const li = document.createElement("li");
+    li.textContent = `Total: ${this.totalSales} cookies`;
+    list.appendChild(li);
+    parentElement.appendChild(list);
+  };
 }
 
 for (let i = 0; i < shopInformation.length; i++) {
-  const tempShop = shopCreator(
+  const tempShop = new Shop(
     shopInformation[i].location,
     shopInformation[i].minCustomer,
     shopInformation[i].maxCustomer,
