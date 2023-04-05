@@ -11,6 +11,8 @@
 header,
 footer {
   background-color: #141514;
+}
+footer {
   text-align: center;
 }
 body {
@@ -35,20 +37,32 @@ h2 {
 /* Header */
 .logo {
   height: 2rem;
-  margin-top: 0.5rem;
 }
 .title {
-  width: 90%;
-  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
+
 nav {
-  padding: 2rem;
-}
-nav > ul > li {
   margin: 1rem;
+  padding: 1rem;
 }
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 700px) {
+  ul {
+    flex-direction: row;
+  }
+}
+li {
+  margin: 0.7rem;
+}
+
 li a {
   color: white;
   text-decoration: none;
@@ -72,13 +86,19 @@ td {
 table {
   margin: 1rem auto;
 }
-
+.table::-webkit-scrollbar {
+  width: 5px;
+}
+.table::-webkit-scrollbar-track {
+  background-color: pink;
+}
+.table::-webkit-scrollbar-thumb {
+  background-color: #141514;
+}
 .table {
   width: 80%;
   margin: 1rem auto;
   overflow-x: auto;
-  scrollbar-width: 10px;
-  scrollbar-color: dark;
 }
 
 th,
@@ -105,9 +125,3 @@ footer {
   bottom: 0;
   width: 100%;
 }
-
-@media (min-width: 700px) {
-  nav > ul > li {
-    display: inline;
-  }
-} ;
