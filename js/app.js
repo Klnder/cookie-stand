@@ -1,5 +1,5 @@
 "use strict";
-
+//variables
 const hours = ["6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"];
 const shopInformation = [
   { location: "Seattle", minCustomer: 23, maxCustomer: 65, avgCookie: 6.3 },
@@ -10,8 +10,13 @@ const shopInformation = [
 ];
 
 const shopList = [];
-const parentElement = document.getElementById("list-shop");
+//dom manipulation
+const table = document.getElementById("data-shop");
+let tableData = document.createElement("td");
+let line = document.createElement("tr");
+let tableHeader = document.createElement("th");
 
+//constructor
 function Shop(location, minCustomer, maxCustomer, avgCookie) {
   this.location = location;
   this.minCustomer = minCustomer;
@@ -19,31 +24,37 @@ function Shop(location, minCustomer, maxCustomer, avgCookie) {
   this.avgCookie = avgCookie;
   this.saleByHour = [];
   this.totalSales = 0;
-  this.calculateSales = function () {
-    for (let i = 0; i < hours.length; i++) {
-      let cookieSale = Math.round(randomCustomerNumber(this.minCustomer, this.maxCustomer) * this.avgCookie);
-      this.totalSales += cookieSale;
-      this.saleByHour.push(cookieSale);
-    }
-  };
-  this.render = function () {
-    this.calculateSales();
-    let locationName = document.createElement("h2");
-    locationName.textContent = this.location;
-    parentElement.appendChild(locationName);
-
-    let list = document.createElement("ul");
-    for (let i = 0; i < hours.length; i++) {
-      const li = document.createElement("li");
-      li.textContent = `${hours[i]}: ${this.saleByHour[i]} cookies`;
-      list.appendChild(li);
-    }
-    const li = document.createElement("li");
-    li.textContent = `Total: ${this.totalSales} cookies`;
-    list.appendChild(li);
-    parentElement.appendChild(list);
-  };
 }
+Shop.prototype.calculateSales = function () {
+  for (let i = 0; i < hours.length; i++) {
+    let cookieSale = Math.round(randomCustomerNumber(this.minCustomer, this.maxCustomer) * this.avgCookie);
+    this.totalSales += cookieSale;
+    this.saleByHour.push(cookieSale);
+  }
+};
+Shop.prototype.render = function () {
+  this.calculateSales();
+  line = document.createElement("tr");
+  //initiate the line with location name
+  tableData = document.createElement("td");
+  tableData.textContent = this.location;
+  tableData.setAttribute("class", "tableheader");
+  line.appendChild(tableData);
+  //for each hour, add the data in the table
+  for (let i = 0; i < hours.length; i++) {
+    tableData = document.createElement("td");
+    tableData.textContent = this.saleByHour[i];
+    line.appendChild(tableData);
+  }
+  //add total at the end of the line
+  tableData = document.createElement("td");
+  tableData.textContent = this.totalSales;
+  line.appendChild(tableData);
+  table.appendChild(line);
+};
+
+//generate objects and add the data to the table
+headerTable();
 
 for (let i = 0; i < shopInformation.length; i++) {
   const tempShop = new Shop(
@@ -54,6 +65,52 @@ for (let i = 0; i < shopInformation.length; i++) {
   );
   shopList[i] = tempShop;
   tempShop.render();
+}
+
+footerTable();
+
+function headerTable() {
+  // initialisation of the table
+  line = document.createElement("tr");
+  tableHeader = document.createElement("th");
+  tableHeader.textContent = "";
+  line.appendChild(tableHeader);
+
+  //for every hour, create a new column
+  for (let i = 0; i < hours.length; i++) {
+    tableHeader = document.createElement("th");
+    tableHeader.textContent = hours[i];
+    line.appendChild(tableHeader);
+  }
+  // add total column
+  tableHeader = document.createElement("th");
+  tableHeader.textContent = "Daily location Total";
+  line.appendChild(tableHeader);
+  table.appendChild(line);
+}
+
+function footerTable() {
+  //add total line per hour
+  line = document.createElement("tr");
+  tableHeader = document.createElement("th");
+  tableHeader.textContent = "Totals";
+  line.appendChild(tableHeader);
+
+  let totalOfTotal = 0;
+  for (let i = 0; i < hours.length; i++) {
+    tableHeader = document.createElement("th");
+    let totalByHour = 0;
+    for (let j = 0; j < shopList.length; j++) {
+      totalByHour += shopList[j].saleByHour[i];
+    }
+    totalOfTotal += totalByHour;
+    tableHeader.textContent = totalByHour;
+    line.appendChild(tableHeader);
+  }
+  tableHeader = document.createElement("th");
+  tableHeader.textContent = totalOfTotal;
+  line.appendChild(tableHeader);
+  table.appendChild(line);
 }
 
 function randomCustomerNumber(min, max) {

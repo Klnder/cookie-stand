@@ -6,10 +6,7 @@
     <meta name="description" content="" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../css/reset.css" />
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <title>Salmon Cookie</title>
@@ -17,17 +14,32 @@
   <body>
     <header>
       <div class="header-container container">
-        <h1>Welcome to the Salmon Cookie website</h1>
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-        </ul>
+        <div class="title">
+          <img src="../img/salmon.png" alt="salmon" class="logo" />
+          <h1>Welcome to the Salmon Cookie website</h1>
+          <img src="../img/salmon.png" alt="salmon" class="logo" />
+        </div>
+        <nav>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="sales.html" class="active">Sales</a></li>
+          </ul>
+        </nav>
       </div>
     </header>
 
     <main>
-      <div class="container main-container" id="list-shop"></div>
+      <div class="container main-container" id="list-shop">
+        <div class="table">
+          <table id="data-shop"></table>
+        </div>
+      </div>
     </main>
-    <footer></footer>
+    <footer>
+      <div class="container footer-container">
+        <p>&#169; Copyright Jeremy Merlin</p>
+      </div>
+    </footer>
     <script src="../js/app.js"></script>
   </body>
 </html>

@@ -1,31 +1,113 @@
+/* Fonts */
+@font-face {
+  font-family: "Cookie";
+  src: url(../fonts/CookieDough.ttf);
+}
+
+* {
+  box-sizing: content-box;
+}
+
+header,
+footer {
+  background-color: #141514;
+  text-align: center;
+}
 body {
   background-color: #1d3049;
   color: white;
 }
+
 h1,
 h2 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  color: purple;
+  font-family: "Cookie", sans-serif;
+  font-weight: 300;
+  color: salmon;
 }
-p {
-  font-family: Times;
-  color: green;
+h1 {
+  font-size: 2rem;
+  margin: 5px;
 }
-.header-container {
+h2 {
+  margin: 1rem;
+}
+
+/* Header */
+.logo {
+  height: 2rem;
+  margin-top: 0.5rem;
+}
+.title {
   width: 90%;
-  margin: 50px auto;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
+nav {
+  padding: 2rem;
+}
+nav > ul > li {
+  margin: 1rem;
+}
+li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+li a:hover {
+  background-color: grey;
+}
+.active {
+  background-color: #04aa6d;
+}
+/* table */
+table,
+th,
+td {
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  padding: 0.2rem;
+}
+table {
+  margin: 1rem auto;
+}
+
+.table {
+  width: 80%;
+  margin: 1rem auto;
+  overflow-x: auto;
+  scrollbar-width: 10px;
+  scrollbar-color: dark;
+}
+
+th,
+.tableheader {
+  font-family: times;
+  font-weight: 200;
+  color: white;
+  background-color: red;
+}
+
+/* container */
+
 .main-container {
   background-color: #208aae;
   width: 90%;
-  margin: 0 auto;
+  margin: 2rem auto;
   text-align: center;
+  padding: 1rem;
 }
-h2 {
-  margin: 1rem;
+footer {
+  padding: 1rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
-li {
-  margin: 1rem;
-  font-family: arial;
-}
+
+@media (min-width: 700px) {
+  nav > ul > li {
+    display: inline;
+  }
+} ;
