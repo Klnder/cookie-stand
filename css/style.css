@@ -59,14 +59,12 @@ ul {
     flex-direction: row;
   }
 }
-li {
-  margin: 0.7rem;
-}
 
 li a {
   color: white;
   text-decoration: none;
   padding: 0.5rem;
+  margin: 0.7rem;
 }
 li a:hover {
   background-color: grey;
@@ -101,10 +99,7 @@ table {
   overflow-x: auto;
 }
 
-th,
 .tableheader {
-  font-family: times;
-  font-weight: 200;
   color: white;
   background-color: red;
 }

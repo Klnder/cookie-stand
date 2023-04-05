@@ -72,6 +72,7 @@ footerTable();
 function headerTable() {
   // initialisation of the table
   line = document.createElement("tr");
+  line.setAttribute("class", "tableheader");
   tableHeader = document.createElement("th");
   tableHeader.textContent = "";
   line.appendChild(tableHeader);
@@ -94,6 +95,7 @@ function footerTable() {
   line = document.createElement("tr");
   tableHeader = document.createElement("th");
   tableHeader.textContent = "Totals";
+  tableHeader.setAttribute("class", "tableheader");
   line.appendChild(tableHeader);
 
   let totalOfTotal = 0;
