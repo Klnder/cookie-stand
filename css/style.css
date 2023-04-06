@@ -7,17 +7,20 @@
 * {
   box-sizing: content-box;
 }
+html {
+  font-family: "Roboto", sans-serif;
+}
 
 header,
 footer {
   background-color: #141514;
 }
+body {
+  background-color: #190061;
+  color: white;
+}
 footer {
   text-align: center;
-}
-body {
-  background-color: #1d3049;
-  color: white;
 }
 
 h1,
@@ -59,12 +62,14 @@ ul {
     flex-direction: row;
   }
 }
-
+li {
+  margin: 0.4rem;
+}
 li a {
   color: white;
   text-decoration: none;
-  padding: 0.5rem;
-  margin: 0.7rem;
+  padding: 0.3rem;
+  margin: 0.5rem;
 }
 li a:hover {
   background-color: grey;
@@ -101,13 +106,13 @@ table {
 
 .tableheader {
   color: white;
-  background-color: red;
+  background-color: #282828;
 }
 
 /* container */
 
 .main-container {
-  background-color: #208aae;
+  background-color: #240090;
   width: 90%;
   margin: 2rem auto;
   text-align: center;
