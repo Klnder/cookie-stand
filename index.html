@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <title>Salmon Cookie</title>
   </head>
-  <body>
+  <body onload="information()">
     <header>
       <div class="header-container container">
         <div class="title">
@@ -20,7 +20,7 @@
           <img src="img/salmon.png" alt="salmon" class="logo" />
         </div>
         <nav>
-          <ul>
+          <ul class="menu">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="html/sales.html">Sales</a></li>
           </ul>
@@ -30,9 +30,20 @@
 
     <main>
       <div class="container main-container">
-        <p>Welcome to Pat Salmon Cookies website !</p>
-        <p>Here you will find cookies made into the shape of a salmon and suitable for both humans and salmon to enjoy.</p>
-        <p>We are almost everywhere in the world !</p>
+        <article>
+          <p>Welcome to Pat Salmon Cookies website !</p>
+          <p>Here you will find cookies made into the shape of a salmon and suitable for both humans and salmon to enjoy.</p>
+          <p>We are almost everywhere in the world !</p>
+        </article>
+        <article>
+          <p>Discover below our locations:</p>
+          <br />
+          <div id="location"></div>
+        </article>
+        <article>
+          <p>Our opening hours are:</p>
+          <div id="opening-times"></div>
+        </article>
       </div>
     </main>
     <footer>

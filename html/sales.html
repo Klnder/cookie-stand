@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <title>Salmon Cookie</title>
   </head>
-  <body>
+  <body onload="sales()">
     <header>
       <div class="header-container container">
         <div class="title">
@@ -20,7 +20,7 @@
           <img src="../img/salmon.png" alt="salmon" class="logo" />
         </div>
         <nav>
-          <ul>
+          <ul class="menu">
             <li><a href="../index.html">Home</a></li>
             <li><a href="sales.html" class="active">Sales</a></li>
           </ul>
@@ -30,9 +30,9 @@
 
     <main>
       <div class="container main-container" id="list-shop">
-        <div class="table">
+        <article class="table">
           <table id="data-shop"></table>
-        </div>
+        </article>
       </div>
     </main>
     <footer>

@@ -16,6 +16,43 @@ let tableData = document.createElement("td");
 let line = document.createElement("tr");
 let tableHeader = document.createElement("th");
 
+function information() {
+  const locationContainer = document.getElementById("location");
+  let listLocation = document.createElement("ul");
+
+  let locationText;
+  for (let i = 0; i < shopInformation.length; i++) {
+    locationText = document.createElement("li");
+    locationText.textContent = shopInformation[i].location;
+    listLocation.appendChild(locationText);
+  }
+  locationContainer.appendChild(listLocation);
+
+  //opening time
+  const timeContainer = document.getElementById("opening-times");
+  timeContainer.textContent = `We are open from ${hours[0]} to ${hours[hours.length - 1]} every day !!!`;
+}
+//index.html
+//location
+
+function sales() {
+  //generate objects and add the data to the table
+  headerTable();
+
+  for (let i = 0; i < shopInformation.length; i++) {
+    const tempShop = new Shop(
+      shopInformation[i].location,
+      shopInformation[i].minCustomer,
+      shopInformation[i].maxCustomer,
+      shopInformation[i].avgCookie
+    );
+    shopList[i] = tempShop;
+    tempShop.render();
+  }
+
+  footerTable();
+}
+
 //constructor
 function Shop(location, minCustomer, maxCustomer, avgCookie) {
   this.location = location;
@@ -52,22 +89,6 @@ Shop.prototype.render = function () {
   line.appendChild(tableData);
   table.appendChild(line);
 };
-
-//generate objects and add the data to the table
-headerTable();
-
-for (let i = 0; i < shopInformation.length; i++) {
-  const tempShop = new Shop(
-    shopInformation[i].location,
-    shopInformation[i].minCustomer,
-    shopInformation[i].maxCustomer,
-    shopInformation[i].avgCookie
-  );
-  shopList[i] = tempShop;
-  tempShop.render();
-}
-
-footerTable();
 
 function headerTable() {
   // initialisation of the table

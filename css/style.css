@@ -51,27 +51,27 @@ nav {
   margin: 1rem;
   padding: 1rem;
 }
-ul {
+.menu {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 @media (min-width: 700px) {
-  ul {
+  .menu {
     flex-direction: row;
   }
 }
-li {
+.menu li {
   margin: 0.4rem;
 }
-li a {
+.menu li a {
   color: white;
   text-decoration: none;
   padding: 0.3rem;
   margin: 0.5rem;
 }
-li a:hover {
+.menu li a:hover {
   background-color: grey;
 }
 .active {
@@ -112,10 +112,17 @@ table {
 /* container */
 
 .main-container {
-  background-color: #240090;
   width: 90%;
   margin: 2rem auto;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+article {
+  background-color: #240090;
+  width: 45%;
+  margin: 1rem 0;
   padding: 1rem;
 }
 footer {
