@@ -73,9 +73,11 @@ nav {
 }
 .menu li a:hover {
   background-color: grey;
+  border-radius: 33px;
 }
 .active {
   background-color: #04aa6d;
+  border-radius: 33px;
 }
 /* table */
 table,
@@ -99,7 +101,7 @@ table {
   background-color: #141514;
 }
 .table {
-  width: 80%;
+  width: 100%;
   margin: 1rem auto;
   overflow-x: auto;
 }
@@ -124,7 +126,7 @@ input {
 /* container */
 
 .main-container {
-  width: 80%;
+  width: 70%;
   margin: 4rem auto;
   text-align: center;
   display: flex;
@@ -136,6 +138,10 @@ article {
   width: 35%;
   margin: 1rem 0;
   padding: 1rem;
+  border-radius: 33px;
+}
+article:hover {
+  box-shadow: 7px 7px 11px 0px rgba(47, 115, 250, 1), -7px -7px 11px 0px rgba(47, 115, 250, 1);
 }
 footer {
   padding: 1rem;
