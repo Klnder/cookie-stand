@@ -90,10 +90,10 @@ table {
   margin: 1rem auto;
 }
 .table::-webkit-scrollbar {
-  width: 5px;
+  width: 1px;
 }
 .table::-webkit-scrollbar-track {
-  background-color: pink;
+  background-color: grey;
 }
 .table::-webkit-scrollbar-thumb {
   background-color: #141514;
@@ -108,12 +108,24 @@ table {
   color: white;
   background-color: #282828;
 }
+/* form */
+
+form {
+  display: inline-block;
+}
+label {
+  float: left;
+  margin-right: 5px;
+}
+input {
+  float: right;
+}
 
 /* container */
 
 .main-container {
-  width: 90%;
-  margin: 2rem auto;
+  width: 80%;
+  margin: 4rem auto;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -121,7 +133,7 @@ table {
 }
 article {
   background-color: #240090;
-  width: 45%;
+  width: 35%;
   margin: 1rem 0;
   padding: 1rem;
 }

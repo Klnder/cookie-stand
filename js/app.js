@@ -139,3 +139,38 @@ function footerTable() {
 function randomCustomerNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+const form = document.getElementById("new-store");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const location = event.target.location.value;
+  const minCustomer = event.target.minCustomer.value;
+  const maxCustomer = event.target.maxCustomer.value;
+  const avgCookie = event.target.avgCookie.value;
+  let alreadyExist = false;
+
+  for (let i = 0; i < shopInformation.length; i++) {
+    if (location == shopInformation[i].location) {
+      shopInformation[i].minCustomer = minCustomer;
+      shopInformation[i].maxCustomer = maxCustomer;
+      shopInformation[i].avgCookie = avgCookie;
+      alreadyExist = true;
+      table.innerHTML = "";
+      sales();
+      break;
+    }
+  }
+  if (!alreadyExist) {
+    const newShop = {
+      location: location,
+      minCustomer: parseInt(minCustomer),
+      maxCustomer: parseInt(maxCustomer),
+      avgCookie: parseInt(avgCookie),
+    };
+    shopInformation.push(newShop);
+    table.innerHTML = "";
+    sales();
+  }
+});
